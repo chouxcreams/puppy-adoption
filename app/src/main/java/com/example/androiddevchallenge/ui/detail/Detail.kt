@@ -42,21 +42,23 @@ import com.example.androiddevchallenge.ui.theme.MyTheme
 fun Detail(id: Int, onClick: () -> Unit) {
     val puppy = puppies[id]
     Surface(color = MaterialTheme.colors.background) {
-        Scaffold(topBar = {
-            TopAppBar(
-                title = { Text(text = "Detail") },
-                navigationIcon = {
-                    val iconPadding = 10.dp
-                    Icon(
-                        modifier = Modifier
-                            .clickable { onClick() }
-                            .padding(iconPadding),
-                        imageVector = Icons.Filled.ArrowBack,
-                        contentDescription = null
-                    )
-                }
-            )
-        }) {
+        Scaffold(
+            topBar = {
+                TopAppBar(
+                    title = { Text(text = "Detail") },
+                    navigationIcon = {
+                        val iconPadding = 10.dp
+                        Icon(
+                            modifier = Modifier
+                                .clickable { onClick() }
+                                .padding(iconPadding),
+                            imageVector = Icons.Filled.ArrowBack,
+                            contentDescription = null
+                        )
+                    }
+                )
+            }
+        ) {
             LazyColumn() {
                 item {
                     Image(

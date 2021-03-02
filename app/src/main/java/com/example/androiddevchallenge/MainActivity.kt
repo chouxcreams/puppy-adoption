@@ -66,7 +66,6 @@ fun MyApp() {
             Detail(id, onClick)
         }
     }
-
 }
 
 @Preview("Light Theme", widthDp = 360, heightDp = 640)

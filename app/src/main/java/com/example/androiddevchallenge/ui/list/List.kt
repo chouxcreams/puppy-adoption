@@ -45,19 +45,20 @@ import com.example.androiddevchallenge.ui.theme.MyTheme
 @Composable
 fun List(onClick: (String) -> Unit) {
     Surface(color = MaterialTheme.colors.background) {
-        Scaffold(topBar = {
-            TopAppBar(
-                title = { Text(text = stringResource(id = R.string.app_name)) },
-                navigationIcon = {
-                    val iconPadding = 10.dp
-                    Icon(
-                        modifier = Modifier.padding(iconPadding),
-                        painter = painterResource(id = R.drawable.pawprint_white),
-                        contentDescription = "nothing"
-                    )
-                }
-            )
-        }
+        Scaffold(
+            topBar = {
+                TopAppBar(
+                    title = { Text(text = stringResource(id = R.string.app_name)) },
+                    navigationIcon = {
+                        val iconPadding = 10.dp
+                        Icon(
+                            modifier = Modifier.padding(iconPadding),
+                            painter = painterResource(id = R.drawable.pawprint_white),
+                            contentDescription = "nothing"
+                        )
+                    }
+                )
+            }
         ) {
             LazyColumn {
                 puppies.forEach { puppy ->
@@ -75,7 +76,8 @@ fun PuppyCard(puppy: Puppy, onClick: (String) -> Unit) {
     Row(
         Modifier
             .clickable { onClick("detail/${puppy.id}") }
-            .padding(padding)) {
+            .padding(padding)
+    ) {
         Thumbnail(puppy)
         Column {
             val horizontalPadding = 6.dp
