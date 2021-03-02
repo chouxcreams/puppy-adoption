@@ -70,7 +70,7 @@ fun PuppyCard(puppy: Puppy, navController: NavController) {
     val padding = 13.dp
     Row(
         Modifier
-            .clickable { navController.navigate("detail") }
+            .clickable { navController.navigate("detail/${puppy.id}") }
             .padding(padding)) {
         Thumbnail(puppy)
         Column {

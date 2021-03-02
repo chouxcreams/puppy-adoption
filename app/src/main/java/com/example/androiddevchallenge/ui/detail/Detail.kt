@@ -34,8 +34,8 @@ import com.example.androiddevchallenge.repository.puppies
 import com.example.androiddevchallenge.ui.theme.MyTheme
 
 @Composable
-fun Detail() {
-    val puppy = puppies[0]
+fun Detail(id: Int) {
+    val puppy = puppies[id]
     Surface(color = MaterialTheme.colors.background) {
         Scaffold(topBar = {
             TopAppBar(
@@ -63,7 +63,11 @@ fun Detail() {
                     fontSize = 30.sp,
                     modifier = Modifier.padding(20.dp)
                 )
-                Text(text = puppy.description, style = MaterialTheme.typography.body2, modifier = Modifier.padding(20.dp, 0.dp))
+                Text(
+                    text = puppy.description,
+                    style = MaterialTheme.typography.body2,
+                    modifier = Modifier.padding(20.dp, 0.dp)
+                )
             }
         }
     }
@@ -73,7 +77,7 @@ fun Detail() {
 @Composable
 fun LightPreview() {
     MyTheme {
-        Detail()
+        Detail(0)
     }
 }
 
@@ -81,6 +85,6 @@ fun LightPreview() {
 @Composable
 fun DarkPreview() {
     MyTheme(darkTheme = true) {
-        Detail()
+        Detail(0)
     }
 }

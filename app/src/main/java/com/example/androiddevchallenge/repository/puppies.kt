@@ -21,6 +21,7 @@ import com.example.androiddevchallenge.model.Sex
 
 val puppies: List<Puppy> = listOf(
     Puppy(
+        0,
         "Pochi",
         3,
         Sex.Male,
@@ -29,6 +30,7 @@ val puppies: List<Puppy> = listOf(
         R.drawable.puppy1
     ),
     Puppy(
+        1,
         "Tama",
         1,
         Sex.Female,
@@ -37,6 +39,7 @@ val puppies: List<Puppy> = listOf(
         R.drawable.puppy2
     ),
     Puppy(
+        2,
         "Taro",
         0,
         Sex.Male,
