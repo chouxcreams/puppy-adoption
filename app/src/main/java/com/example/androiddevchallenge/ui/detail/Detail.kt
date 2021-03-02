@@ -18,6 +18,7 @@ package com.example.androiddevchallenge.ui.detail
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.*
@@ -56,7 +57,8 @@ fun Detail(id: Int, onClick: () -> Unit) {
                 item {
                     Image(
                         painter = painterResource(id = puppy.thumbnailId),
-                        contentDescription = puppy.name
+                        contentDescription = puppy.name,
+                        modifier = Modifier.fillMaxWidth()
                     )
                 }
                 item {
