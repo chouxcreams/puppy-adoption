@@ -1,4 +1,4 @@
-package com.example.androiddevchallenge.content
+package com.example.androiddevchallenge.model
 
 data class Puppy(
     val name: String,
