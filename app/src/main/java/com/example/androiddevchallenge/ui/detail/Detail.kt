@@ -19,6 +19,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -51,22 +52,28 @@ fun Detail(id: Int, onClick: () -> Unit) {
                 }
             )
         }) {
-            Column() {
-                Image(
-                    painter = painterResource(id = puppy.thumbnailId),
-                    contentDescription = puppy.name
-                )
-                Text(
-                    text = "${puppy.name} (${puppy.age})",
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 30.sp,
-                    modifier = Modifier.padding(20.dp)
-                )
-                Text(
-                    text = puppy.description,
-                    style = MaterialTheme.typography.body2,
-                    modifier = Modifier.padding(20.dp, 0.dp)
-                )
+            LazyColumn() {
+                item {
+                    Image(
+                        painter = painterResource(id = puppy.thumbnailId),
+                        contentDescription = puppy.name
+                    )
+                }
+                item {
+                    Text(
+                        text = "${puppy.name} (${puppy.age})",
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 30.sp,
+                        modifier = Modifier.padding(20.dp)
+                    )
+                }
+                item {
+                    Text(
+                        text = puppy.description,
+                        style = MaterialTheme.typography.body2,
+                        modifier = Modifier.padding(20.dp, 0.dp)
+                    )
+                }
             }
         }
     }
