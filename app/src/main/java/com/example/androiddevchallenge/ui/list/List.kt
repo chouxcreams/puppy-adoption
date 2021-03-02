@@ -21,6 +21,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
@@ -30,9 +31,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
-import androidx.navigation.compose.navigate
-import androidx.navigation.compose.rememberNavController
 import com.example.androiddevchallenge.R
 import com.example.androiddevchallenge.model.Puppy
 import com.example.androiddevchallenge.repository.puppies
@@ -55,10 +53,10 @@ fun List(onClick: (String) -> Unit) {
             )
         }
         ) {
-            Column {
+            LazyColumn {
                 puppies.forEach { puppy ->
-                    PuppyCard(puppy, onClick)
-                    Divider()
+                    item{ PuppyCard(puppy, onClick) }
+                    item{ Divider() }
                 }
             }
         }
