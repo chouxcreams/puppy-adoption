@@ -55,9 +55,9 @@ fun MyApp() {
             TopAppBar(
                 title = { Text(text = stringResource(id = R.string.app_name)) },
                 navigationIcon = {
-                    val icon_padding = 10.dp
+                    val iconPadding = 10.dp
                     Icon(
-                        modifier = Modifier.padding(icon_padding),
+                        modifier = Modifier.padding(iconPadding),
                         painter = painterResource(id = R.drawable.pawprint_white),
                         contentDescription = "nothing"
                     )
@@ -68,6 +68,7 @@ fun MyApp() {
             Column {
                 puppies.forEach { puppy ->
                     PuppyCard(puppy)
+                    Divider()
                 }
             }
         }
@@ -76,21 +77,37 @@ fun MyApp() {
 
 @Composable
 fun PuppyCard(puppy: Puppy) {
-    val padding = 16.dp
+    val padding = 13.dp
     Row(Modifier.padding(padding)) {
-        Image(
-            painter = painterResource(id = puppy.thumbnailId),
-            contentDescription = puppy.name,
-            modifier = Modifier
-                .size(80.dp, 80.dp)
-                .padding(6.dp)
-                .clip(RoundedCornerShape(percent = 30))
-        )
-        Column() {
-            Text(text = puppy.name)
-            Text(text = puppy.description)
+        Thumbnail(puppy)
+        Column {
+            val horizontalPadding = 6.dp
+            val verticalPadding = 3.dp
+            Text(
+                text = "${puppy.name} (${puppy.age})",
+                // fontSize = 24.sp,
+                style = MaterialTheme.typography.subtitle1,
+                modifier = Modifier.padding(horizontalPadding, verticalPadding)
+            )
+            Text(
+                text = "${puppy.description.take(60)}...",
+                style = MaterialTheme.typography.body2,
+                modifier = Modifier.padding(horizontalPadding, verticalPadding)
+            )
         }
     }
+}
+
+@Composable
+fun Thumbnail(puppy: Puppy) {
+    Image(
+        painter = painterResource(id = puppy.thumbnailId),
+        contentDescription = puppy.name,
+        modifier = Modifier
+            .size(90.dp, 90.dp)
+            .padding(6.dp)
+            .clip(RoundedCornerShape(percent = 30))
+    )
 }
 
 @Preview("Light Theme", widthDp = 360, heightDp = 640)
