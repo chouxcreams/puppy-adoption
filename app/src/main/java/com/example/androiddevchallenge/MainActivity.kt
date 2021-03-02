@@ -18,12 +18,20 @@ package com.example.androiddevchallenge
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.androiddevchallenge.model.Puppy
 import com.example.androiddevchallenge.repository.puppies
 import com.example.androiddevchallenge.ui.theme.MyTheme
@@ -44,10 +52,18 @@ class MainActivity : AppCompatActivity() {
 fun MyApp() {
     Surface(color = MaterialTheme.colors.background) {
         Scaffold(topBar = {
-                TopAppBar(
-                    title = {Text(text = stringResource(id = R.string.app_name))}
-                )
-            }
+            TopAppBar(
+                title = { Text(text = stringResource(id = R.string.app_name)) },
+                navigationIcon = {
+                    val icon_padding = 10.dp
+                    Icon(
+                        modifier = Modifier.padding(icon_padding),
+                        painter = painterResource(id = R.drawable.pawprint_white),
+                        contentDescription = "nothing"
+                    )
+                }
+            )
+        }
         ) {
             Column {
                 puppies.forEach { puppy ->
@@ -60,8 +76,16 @@ fun MyApp() {
 
 @Composable
 fun PuppyCard(puppy: Puppy) {
-    Row {
-        Text(text = "thumbnail")
+    val padding = 16.dp
+    Row(Modifier.padding(padding)) {
+        Image(
+            painter = painterResource(id = puppy.thumbnailId),
+            contentDescription = puppy.name,
+            modifier = Modifier
+                .size(80.dp, 80.dp)
+                .padding(6.dp)
+                .clip(RoundedCornerShape(percent = 30))
+        )
         Column() {
             Text(text = puppy.name)
             Text(text = puppy.description)
