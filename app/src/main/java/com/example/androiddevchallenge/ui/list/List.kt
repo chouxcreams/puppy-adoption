@@ -39,7 +39,7 @@ import com.example.androiddevchallenge.repository.puppies
 import com.example.androiddevchallenge.ui.theme.MyTheme
 
 @Composable
-fun List(navController: NavController) {
+fun List(onClick: (String) -> Unit) {
     Surface(color = MaterialTheme.colors.background) {
         Scaffold(topBar = {
             TopAppBar(
@@ -57,7 +57,7 @@ fun List(navController: NavController) {
         ) {
             Column {
                 puppies.forEach { puppy ->
-                    PuppyCard(puppy, navController)
+                    PuppyCard(puppy, onClick)
                     Divider()
                 }
             }
@@ -66,11 +66,11 @@ fun List(navController: NavController) {
 }
 
 @Composable
-fun PuppyCard(puppy: Puppy, navController: NavController) {
+fun PuppyCard(puppy: Puppy, onClick: (String) -> Unit) {
     val padding = 13.dp
     Row(
         Modifier
-            .clickable { navController.navigate("detail/${puppy.id}") }
+            .clickable { onClick("detail/${puppy.id}") }
             .padding(padding)) {
         Thumbnail(puppy)
         Column {
@@ -106,8 +106,7 @@ fun Thumbnail(puppy: Puppy) {
 @Composable
 fun LightPreview() {
     MyTheme {
-        val navController = rememberNavController()
-        List(navController)
+        List{}
     }
 }
 
@@ -115,7 +114,6 @@ fun LightPreview() {
 @Composable
 fun DarkPreview() {
     MyTheme(darkTheme = true) {
-        val navController = rememberNavController()
-        List(navController)
+        List{}
     }
 }

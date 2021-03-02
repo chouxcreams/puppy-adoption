@@ -21,10 +21,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavType
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import androidx.navigation.compose.navArgument
-import androidx.navigation.compose.rememberNavController
+import androidx.navigation.compose.*
 import com.example.androiddevchallenge.model.Puppy
 import com.example.androiddevchallenge.ui.detail.Detail
 import com.example.androiddevchallenge.ui.list.List
@@ -49,13 +46,21 @@ fun MyApp() {
         navController = navController,
         startDestination = "list",
     ) {
-        composable("list") { List(navController) }
+        composable("list") {
+            val onClick: (String) -> Unit = { route ->
+                navController.navigate(route)
+            }
+            List(onClick)
+        }
         composable(
             "detail/{id}",
             arguments = listOf(navArgument("id") { type = NavType.IntType })
         ) { backStackEntry ->
             val id = backStackEntry.arguments!!.getInt("id")
-            Detail(id, navController)
+            val onClick: () -> Unit =  {
+                navController.navigateUp()
+            }
+            Detail(id, onClick)
         }
     }
 

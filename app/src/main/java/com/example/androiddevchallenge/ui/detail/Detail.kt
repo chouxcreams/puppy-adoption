@@ -36,7 +36,7 @@ import com.example.androiddevchallenge.repository.puppies
 import com.example.androiddevchallenge.ui.theme.MyTheme
 
 @Composable
-fun Detail(id: Int, navController: NavController) {
+fun Detail(id: Int, onClick: () -> Unit) {
     val puppy = puppies[id]
     Surface(color = MaterialTheme.colors.background) {
         Scaffold(topBar = {
@@ -46,7 +46,7 @@ fun Detail(id: Int, navController: NavController) {
                     val iconPadding = 10.dp
                     Icon(
                         modifier = Modifier
-                            .clickable { navController.navigateUp() }
+                            .clickable { onClick() }
                             .padding(iconPadding),
                         imageVector = Icons.Filled.ArrowBack,
                         contentDescription = null
@@ -78,17 +78,15 @@ fun Detail(id: Int, navController: NavController) {
 @Preview("Light Theme", widthDp = 360, heightDp = 640)
 @Composable
 fun LightPreview() {
-    val navController = rememberNavController()
     MyTheme {
-        Detail(0, navController)
+        Detail(0) {}
     }
 }
 
 @Preview("Dark Theme", widthDp = 360, heightDp = 640)
 @Composable
 fun DarkPreview() {
-    val navController = rememberNavController()
     MyTheme(darkTheme = true) {
-        Detail(0, navController)
+        Detail(0) {}
     }
 }
