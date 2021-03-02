@@ -16,6 +16,7 @@
 package com.example.androiddevchallenge.ui
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
@@ -29,13 +30,16 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.navigate
+import androidx.navigation.compose.rememberNavController
 import com.example.androiddevchallenge.R
 import com.example.androiddevchallenge.model.Puppy
 import com.example.androiddevchallenge.repository.puppies
 import com.example.androiddevchallenge.ui.theme.MyTheme
 
 @Composable
-fun PuppyList() {
+fun List(navController: NavController) {
     Surface(color = MaterialTheme.colors.background) {
         Scaffold(topBar = {
             TopAppBar(
@@ -53,7 +57,7 @@ fun PuppyList() {
         ) {
             Column {
                 puppies.forEach { puppy ->
-                    PuppyCard(puppy)
+                    PuppyCard(puppy, navController)
                     Divider()
                 }
             }
@@ -62,9 +66,12 @@ fun PuppyList() {
 }
 
 @Composable
-fun PuppyCard(puppy: Puppy) {
+fun PuppyCard(puppy: Puppy, navController: NavController) {
     val padding = 13.dp
-    Row(Modifier.padding(padding)) {
+    Row(
+        Modifier
+            .clickable { navController.navigate("detail") }
+            .padding(padding)) {
         Thumbnail(puppy)
         Column {
             val horizontalPadding = 6.dp
@@ -99,7 +106,8 @@ fun Thumbnail(puppy: Puppy) {
 @Composable
 fun LightPreview() {
     MyTheme {
-        PuppyList()
+        val navController = rememberNavController()
+        List(navController)
     }
 }
 
@@ -107,6 +115,7 @@ fun LightPreview() {
 @Composable
 fun DarkPreview() {
     MyTheme(darkTheme = true) {
-        PuppyList()
+        val navController = rememberNavController()
+        List(navController)
     }
 }

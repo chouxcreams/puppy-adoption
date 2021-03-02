@@ -23,7 +23,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.androiddevchallenge.ui.PuppyList
+import com.example.androiddevchallenge.ui.Detail
+import com.example.androiddevchallenge.ui.List
 import com.example.androiddevchallenge.ui.theme.MyTheme
 
 class MainActivity : AppCompatActivity() {
@@ -43,9 +44,10 @@ fun MyApp() {
     val navController = rememberNavController()
     NavHost(
         navController = navController,
-        startDestination = "profile",
+        startDestination = "list",
     ) {
-        composable("profile") { PuppyList()}
+        composable("list") { List(navController) }
+        composable("detail") { Detail() }
     }
 
 }
