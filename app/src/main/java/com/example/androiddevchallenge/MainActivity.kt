@@ -55,7 +55,7 @@ fun MyApp() {
             arguments = listOf(navArgument("id") { type = NavType.IntType })
         ) { backStackEntry ->
             val id = backStackEntry.arguments!!.getInt("id")
-            Detail(id)
+            Detail(id, navController)
         }
     }
 

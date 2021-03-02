@@ -29,12 +29,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.androiddevchallenge.R
 import com.example.androiddevchallenge.repository.puppies
 import com.example.androiddevchallenge.ui.theme.MyTheme
 
 @Composable
-fun Detail(id: Int) {
+fun Detail(id: Int, navController: NavController) {
     val puppy = puppies[id]
     Surface(color = MaterialTheme.colors.background) {
         Scaffold(topBar = {
@@ -44,7 +46,7 @@ fun Detail(id: Int) {
                     val iconPadding = 10.dp
                     Icon(
                         modifier = Modifier
-                            .clickable { }
+                            .clickable { navController.navigateUp() }
                             .padding(iconPadding),
                         imageVector = Icons.Filled.ArrowBack,
                         contentDescription = null
@@ -76,15 +78,17 @@ fun Detail(id: Int) {
 @Preview("Light Theme", widthDp = 360, heightDp = 640)
 @Composable
 fun LightPreview() {
+    val navController = rememberNavController()
     MyTheme {
-        Detail(0)
+        Detail(0, navController)
     }
 }
 
 @Preview("Dark Theme", widthDp = 360, heightDp = 640)
 @Composable
 fun DarkPreview() {
+    val navController = rememberNavController()
     MyTheme(darkTheme = true) {
-        Detail(0)
+        Detail(0, navController)
     }
 }
