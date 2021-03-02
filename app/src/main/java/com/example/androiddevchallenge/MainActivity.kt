@@ -60,7 +60,7 @@ fun MyApp() {
             arguments = listOf(navArgument("id") { type = NavType.IntType })
         ) { backStackEntry ->
             val id = backStackEntry.arguments!!.getInt("id")
-            val onClick: () -> Unit =  {
+            val onClick: () -> Unit = {
                 navController.navigateUp()
             }
             Detail(id, onClick)

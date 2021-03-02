@@ -61,8 +61,8 @@ fun List(onClick: (String) -> Unit) {
         ) {
             LazyColumn {
                 puppies.forEach { puppy ->
-                    item{ PuppyCard(puppy, onClick) }
-                    item{ Divider() }
+                    item { PuppyCard(puppy, onClick) }
+                    item { Divider() }
                 }
             }
         }
@@ -110,7 +110,7 @@ fun Thumbnail(puppy: Puppy) {
 @Composable
 fun LightPreview() {
     MyTheme {
-        List{}
+        List {}
     }
 }
 
@@ -118,6 +118,6 @@ fun LightPreview() {
 @Composable
 fun DarkPreview() {
     MyTheme(darkTheme = true) {
-        List{}
+        List {}
     }
 }

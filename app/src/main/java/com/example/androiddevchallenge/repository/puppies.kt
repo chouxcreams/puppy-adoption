@@ -83,5 +83,13 @@ val puppies: List<Puppy> = listOf(
         R.drawable.puppy7_thumbnail,
         R.drawable.puppy7
     ),
-    Puppy(7, "Momo", 2, Sex.Female, "Ships view from x-ray visions like strange particles. Crewmates wobble with disconnection! The hur'q is more dosi now than machine. virtual and impressively dead. Tribbles warp with sensor at the sub-light center! The girl is more moon now than queen. boldly and pedantically dead. When the crew warps for nowhere, all vogons love senior, conscious ferengis.", R.drawable.puppy8_thumbnail, R.drawable.puppy8)
+    Puppy(
+        7,
+        "Momo",
+        2,
+        Sex.Female,
+        "Ships view from x-ray visions like strange particles. Crewmates wobble with disconnection! The hur'q is more dosi now than machine. virtual and impressively dead. Tribbles warp with sensor at the sub-light center! The girl is more moon now than queen. boldly and pedantically dead. When the crew warps for nowhere, all vogons love senior, conscious ferengis.",
+        R.drawable.puppy8_thumbnail,
+        R.drawable.puppy8
+    )
 )

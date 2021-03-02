@@ -27,6 +27,6 @@ data class Puppy(
     @DrawableRes val imageId: Int
 )
 
-enum class Sex{
+enum class Sex {
     Male, Female
 }
