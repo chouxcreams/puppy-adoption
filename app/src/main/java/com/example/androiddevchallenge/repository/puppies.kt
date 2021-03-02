@@ -61,7 +61,7 @@ val puppies: List<Puppy> = listOf(
         "Mugi",
         1,
         Sex.Male,
-        "Bassus, albus castors mechanice dignus de germanus, clemens homo. Accolas sunt luras de noster abaculus. Extums sunt vortexs de rusticus mens. Calcarias peregrinatione! Velox brodiums ducunt ad deus. Seculas experimentum in grandis tolosa! Extums congregabo, tanquam varius mons. Palus de bassus hilotae, acquirere clabulare! Eheu. Hydras sunt bromiums de alter lanista. Brodium de dexter lixa, locus nutrix! Teres historia diligenter magicaes hippotoxota est. Sectams sunt lapsuss de magnum fermium. Humani generiss cadunt in tubinga! Grandis torquiss ducunt ad deus. Pol, mirabilis exsul! ",
+        "Bassus, albus castors mechanice dignus de germanus, clemens homo. Accolas sunt luras de noster abaculus. Extums sunt vortexs de rusticus mens. Calcarias peregrinatione! Velox brodiums ducunt ad deus. Seculas experimentum in grandis tolosa! Extums congregabo, tanquam varius mons. Palus de bassus hilotae, acquirere clabulare! Eheu. Hydras sunt bromiums de alter lanista. Brodium de dexter lixa, locus nutrix! Teres historia diligenter magicaes hippotoxota est. Sectams sunt lapsuss de magnum fermium. Humani generiss cadunt in tubinga! Grandis torquiss ducunt ad deus. Pol, mirabilis exsul! Pol, a bene brodium. Est azureus eleates, cesaris.Lixas ridetis, tanquam regius stella. Cum bulla potus, omnes messores promissio festus, velox lactaes. Historia, species, et palus. ",
         R.drawable.puppy5_thumbnail,
         R.drawable.puppy5
     ),
