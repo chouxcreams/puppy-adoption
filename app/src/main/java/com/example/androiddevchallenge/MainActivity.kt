@@ -41,8 +41,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.androiddevchallenge.model.Puppy
-import com.example.androiddevchallenge.repository.puppies
+import com.example.androiddevchallenge.ui.PuppyList
 import com.example.androiddevchallenge.ui.theme.MyTheme
 
 class MainActivity : AppCompatActivity() {
@@ -67,68 +66,6 @@ fun MyApp() {
         composable("profile") { PuppyList()}
     }
 
-}
-
-@Composable
-fun PuppyList() {
-    Surface(color = MaterialTheme.colors.background) {
-        Scaffold(topBar = {
-            TopAppBar(
-                title = { Text(text = stringResource(id = R.string.app_name)) },
-                navigationIcon = {
-                    val iconPadding = 10.dp
-                    Icon(
-                        modifier = Modifier.padding(iconPadding),
-                        painter = painterResource(id = R.drawable.pawprint_white),
-                        contentDescription = "nothing"
-                    )
-                }
-            )
-        }
-        ) {
-            Column {
-                puppies.forEach { puppy ->
-                    PuppyCard(puppy)
-                    Divider()
-                }
-            }
-        }
-    }
-}
-
-@Composable
-fun PuppyCard(puppy: Puppy) {
-    val padding = 13.dp
-    Row(Modifier.padding(padding)) {
-        Thumbnail(puppy)
-        Column {
-            val horizontalPadding = 6.dp
-            val verticalPadding = 3.dp
-            Text(
-                text = "${puppy.name} (${puppy.age})",
-                // fontSize = 24.sp,
-                style = MaterialTheme.typography.subtitle1,
-                modifier = Modifier.padding(horizontalPadding, verticalPadding)
-            )
-            Text(
-                text = "${puppy.description.take(60)}...",
-                style = MaterialTheme.typography.body2,
-                modifier = Modifier.padding(horizontalPadding, verticalPadding)
-            )
-        }
-    }
-}
-
-@Composable
-fun Thumbnail(puppy: Puppy) {
-    Image(
-        painter = painterResource(id = puppy.thumbnailId),
-        contentDescription = puppy.name,
-        modifier = Modifier
-            .size(90.dp, 90.dp)
-            .padding(6.dp)
-            .clip(RoundedCornerShape(percent = 30))
-    )
 }
 
 @Preview("Light Theme", widthDp = 360, heightDp = 640)
