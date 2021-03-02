@@ -23,8 +23,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.androiddevchallenge.ui.Detail
-import com.example.androiddevchallenge.ui.List
+import com.example.androiddevchallenge.ui.detail.Detail
+import com.example.androiddevchallenge.ui.list.List
 import com.example.androiddevchallenge.ui.theme.MyTheme
 
 class MainActivity : AppCompatActivity() {

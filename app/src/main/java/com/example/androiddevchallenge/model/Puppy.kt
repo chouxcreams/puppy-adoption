@@ -22,7 +22,8 @@ data class Puppy(
     val age: Int,
     val sex: Sex,
     val description: String,
-    @DrawableRes val thumbnailId: Int
+    @DrawableRes val thumbnailId: Int,
+    @DrawableRes val imageId: Int
 )
 
 enum class Sex{
