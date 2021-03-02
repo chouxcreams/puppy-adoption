@@ -38,6 +38,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.androiddevchallenge.model.Puppy
 import com.example.androiddevchallenge.repository.puppies
 import com.example.androiddevchallenge.ui.theme.MyTheme
@@ -56,6 +59,18 @@ class MainActivity : AppCompatActivity() {
 // Start building your app here!
 @Composable
 fun MyApp() {
+    val navController = rememberNavController()
+    NavHost(
+        navController = navController,
+        startDestination = "profile",
+    ) {
+        composable("profile") { PuppyList()}
+    }
+
+}
+
+@Composable
+fun PuppyList() {
     Surface(color = MaterialTheme.colors.background) {
         Scaffold(topBar = {
             TopAppBar(
